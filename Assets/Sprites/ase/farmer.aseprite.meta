@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f57974323d58f3648981341dbc531d82
+guid: 0a50907892658a947b5f3f382f60115c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -16,7 +16,7 @@ ScriptedImporter:
     transparentColor: {r: 1, g: 0, b: 1, a: 1}
     meshType: 1
     extrudeEdges: 1
-    spritePivot: {x: 0, y: 0.5}
+    spritePivot: {x: 0.5, y: 0.5}
     generatePhysics: 1
     wrapMode: 1
     filterMode: 0
@@ -24,9 +24,15 @@ ScriptedImporter:
     tilePadding: {x: 0, y: 0}
     tileOffset: {x: 0, y: 0}
   animationSettings:
+  - animationName: Idle
+    loopTime: 1
+    about: "Animation Type:\tForward\r\nAnimation:\tFrom: 0; To: 5"
+  - animationName: Run
+    loopTime: 1
+    about: "Animation Type:\tForward\r\nAnimation:\tFrom: 6; To: 9"
   - animationName: Till
     loopTime: 1
-    about: "Animation Type:\tForward\r\nAnimation:\tFrom: 0; To: 4"
+    about: "Animation Type:\tForward\r\nAnimation:\tFrom: 10; To: 15"
   atlas: {instanceID: 0}
   importType: 0
   bindType: 0
