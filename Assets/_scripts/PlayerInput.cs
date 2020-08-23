@@ -26,4 +26,6 @@ public class PlayerInput : MonoBehaviour
             moveCharacter.PlayTillAnimation();
         }
     }
+
+   
 }

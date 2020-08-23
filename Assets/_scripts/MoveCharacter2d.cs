@@ -9,6 +9,8 @@ public class MoveCharacter2d : MonoBehaviour
     public float speed = 1.5f;
     public float targetStopRange = 1f;
 
+    public FarmableTile activeTile;
+
     private Vector3 moveTarget;
     private float distanceToTarget;
     private bool isWalking = false;
@@ -67,6 +69,11 @@ public class MoveCharacter2d : MonoBehaviour
         animator.SetTrigger("Till");
     }
 
+    public void TillActiveTile()
+    {
+        activeTile.TillTile();
+    }
+
     private void PlayWalkingAnimation(bool _walking)
     {
         animator.SetBool("isWalking", _walking);
@@ -81,5 +88,20 @@ public class MoveCharacter2d : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, moveTarget, speed * Time.deltaTime);
 
         distanceToTarget = Vector3.Distance(moveTarget, transform.position);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("triggered");
+        if(other.gameObject.tag == "Tillable")
+        {
+            activeTile = other.GetComponent<FarmableTile>();
+            Debug.Log("Other tile is" + activeTile);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("trigger exit");
     }
 }
