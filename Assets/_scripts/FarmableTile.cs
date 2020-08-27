@@ -9,7 +9,7 @@ public class FarmableTile : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    public TileState tileState = 0;
+    public TileState tileState = TileState.Dry;
 
     void Awake()
     {
@@ -19,5 +19,15 @@ public class FarmableTile : MonoBehaviour
     public void TillTile()
     {
         spriteRenderer.sprite = sprites[1];
+        tileState = TileState.Tilled;
+    }
+
+    public void WaterTile()
+    {
+        if(tileState == TileState.Tilled)
+        {
+            spriteRenderer.sprite = sprites[2];
+            tileState = TileState.Wet;
+        }
     }
 }

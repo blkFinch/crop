@@ -44,6 +44,7 @@ public class MoveCharacter2d : MonoBehaviour
         }
     }
 
+
     public void SetMoveTarget(Vector3 target)
     {
         moveTarget = target;
@@ -64,15 +65,23 @@ public class MoveCharacter2d : MonoBehaviour
         ProcessMovement();
     }
 
-    public void PlayTillAnimation()
+    public void HandleActionAnimation()
     {
-        animator.SetTrigger("Till");
+        
+        switch(Player.active.Equipped){
+
+            case PlayerEquipState.Hoe:
+                animator.SetTrigger("Till");
+                break;
+            case PlayerEquipState.Water:
+                animator.SetTrigger("Water");
+                break;
+            default:
+                break;
+        }   
     }
 
-    public void TillActiveTile()
-    {
-        activeTile.TillTile();
-    }
+ 
 
     private void PlayWalkingAnimation(bool _walking)
     {
@@ -92,16 +101,25 @@ public class MoveCharacter2d : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("triggered");
+
         if(other.gameObject.tag == "Tillable")
         {
             activeTile = other.GetComponent<FarmableTile>();
-            Debug.Log("Other tile is" + activeTile);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+
+    #region Tile Change Events
+    //TODO: consider refactoring the active tile events??
+    public void TillActiveTile()
     {
-        Debug.Log("trigger exit");
+        activeTile.TillTile();
     }
+
+    public void WaterActiveTile()
+    {
+        activeTile.WaterTile();
+    }
+    #endregion
+
 }

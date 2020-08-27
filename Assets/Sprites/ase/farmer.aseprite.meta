@@ -33,6 +33,9 @@ ScriptedImporter:
   - animationName: Till
     loopTime: 1
     about: "Animation Type:\tForward\r\nAnimation:\tFrom: 10; To: 15"
+  - animationName: Water
+    loopTime: 1
+    about: "Animation Type:\tForward\r\nAnimation:\tFrom: 16; To: 23"
   atlas: {instanceID: 0}
   importType: 0
   bindType: 0

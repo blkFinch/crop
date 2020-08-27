@@ -23,8 +23,15 @@ public class PlayerInput : MonoBehaviour
         }
         else if(Input.GetMouseButtonDown(1))
         {
-            moveCharacter.PlayTillAnimation();
+           moveCharacter.HandleActionAnimation();
         }
+
+        //TODO: better way to switch equip
+        if(Input.GetKeyDown("space"))
+        {
+            Player.active.CycleEquipState();
+        }
+       
     }
 
    
